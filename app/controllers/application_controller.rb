@@ -20,4 +20,9 @@ class ApplicationController < Sinatra::Base
     @articles=Article.all 
     erb :index 
   end 
+
+  get 'articles/:id' do 
+  @article=params[id:]
+  erb :show 
+  end 
 end
