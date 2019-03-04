@@ -11,24 +11,21 @@ class ApplicationController < Sinatra::Base
   get '/' do
     redirect to "/articles"
   end
-  get '/articles' do 
-    @articles=Article.all 
-    erb :index 
-  end 
+  
 
   get '/articles/new' do 
   @article=Article.new 
   erb :new
   end 
 
-  # get '/articles' do 
-  #   @articles=Article.all 
-  #   erb :index 
-  # end 
+  get '/articles' do 
+    @articles=Article.all 
+    erb :index 
+  end 
 
   post 'articles' do 
     @article=Article.create(params)
-    redirect to "/articles/#{@article.id}"
+    redirect to "/articles/#{ @article.id }"
   end 
 
   get 'articles/:id' do 
